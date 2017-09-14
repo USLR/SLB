@@ -16,14 +16,24 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendFunc){
     var json = JSON.parse(request)
     // we have servers
     // add buttons
+    var parent = document.getElementsByClassName("game-stat-footer")  
+    var titleNode = document.createElement("H1")
+    var titleText = document.createTextNode("SLS Server List")
+    titleNode.appendChild(titleText)
+    var titlebreak1 = document.createElement("br")
+    var titlebreak2 = document.createElement("br")
+    parent[0].appendChild(titlebreak1)
+    parent[0].appendChild(titleNode)
+    parent[0].appendChild(titlebreak2)
     for (var index = 0; index < json.length; index++) {
       var element = json[index];
       console.log(element)
-      var parent = document.getElementsByClassName("game-stat-footer")
       var button = document.createElement("button")
       button.setAttribute("OnClick", "Roblox.GameLauncher.joinGameInstance(" + element.placeId + ", \"" + element.serverId + "\")")
-      var text = document.createTextNode(element.serverId)
+      var linebreak = document.createElement("br")
+      var text = document.createTextNode("Press to join server! (amount of players: " + element.registeredPlayerCount + ")")
       button.appendChild(text)
       parent[0].appendChild(button)
+      parent[0].appendChild(linebreak)      
     }
 })
