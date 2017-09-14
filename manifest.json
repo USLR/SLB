@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
 
-	"name": "slb test",
-	"description": "",
+	"name": "Server List Browser",
+	"description": "Uses SLS to add a server list on SLC game pages with the correct SLS server in the settings.",
 	"version": "1.0",
 	"background": {
 		"scripts": [
