@@ -22,15 +22,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendFunc){
     titleNode.appendChild(titleText)
     var titlebreak1 = document.createElement("br")
     var titlebreak2 = document.createElement("br")
-    parent[0].appendChild(titlebreak1)
-    parent[0].appendChild(titleNode)
-    parent[0].appendChild(titlebreak2)
+    parent.appendChild(titlebreak1)
+    parent.appendChild(titleNode)
+    parent.appendChild(titlebreak2)
     if (json.length == 0) {
       console.log("empty server list")
       var notifyNode = document.createElement("H3")
       var notifyText = document.createTextNode("No servers are currently running or this game does not use SLS or is not in the repository.")
       notifyNode.appendChild(notifyText)
-      parent[0].appendChild(notifyNode)
+      parent.appendChild(notifyNode)
     } else {
       for (var index = 0; index < json.length; index++) {
         var element = json[index];
@@ -40,8 +40,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendFunc){
         var linebreak = document.createElement("br")
         var text = document.createTextNode("Press to join server! (amount of players: " + element.registeredPlayerCount + ")")
         button.appendChild(text)
-        parent[0].appendChild(button)
-        parent[0].appendChild(linebreak)      
+        parent.appendChild(button)
+        parent.appendChild(linebreak)      
       }
     }
 })
